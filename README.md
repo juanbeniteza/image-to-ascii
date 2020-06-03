@@ -1,1 +1,1 @@
-# image-to-ascii
+# Images to ASCII ART
