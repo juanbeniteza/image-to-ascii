@@ -4,10 +4,12 @@ import sys
 ASCII_CHARS = "`^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
 MAX_PIXEL_VALUE = 255
 
+
 def get_pixel_matrix(img):
     img.thumbnail((100, 100))
     pixels = list(img.getdata())
     return [pixels[i:i+img.width] for i in range(0, len(pixels), img.width)]
+
 
 def get_intensity_matrix(pixels_matrix):
     intensity_matrix = []
@@ -19,6 +21,7 @@ def get_intensity_matrix(pixels_matrix):
         intensity_matrix.append(intensity_row)
 
     return intensity_matrix
+
 
 def normalize_intensity_matrix(intensity_matrix):
     normalized_intensity_matrix = []
@@ -43,6 +46,7 @@ def convert_to_ascii(intensity_matrix, ascii_chars):
         ascii_matrix.append(ascii_row)
 
     return ascii_matrix
+
 
 def print_ascii_matrix(ascii_matrix):
     for row in ascii_matrix:
