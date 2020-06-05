@@ -1,5 +1,6 @@
 import sys
 import os
+import argparse
 from PIL import Image
 
 
@@ -55,18 +56,19 @@ def ascii_art(ascii_matrix, filename=None):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Image2ASCII Converter')
+    parser.add_argument('filename', help='File to convert')
+    parser.add_argument('-f', help='If you want to store the ASCII as a txt file', action='store_true')
+    args = parser.parse_args()
 
-    filepath = sys.argv[1]
-    options = [opt for opt in sys.argv[1:] if opt.startswith("-")]
-
+    filepath = args.filename
     filename = None
-
-    if '-f' in options:
+    if args.f:
         filename = os.path.splitext(filepath)[0]
 
     try:
         image = Image.open(filepath)
-    except:
+    except Exception:
         raise SystemExit(f"File was not found.")
 
     pixel_matrix = build_pixel_matrix(image)
