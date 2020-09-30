@@ -1,4 +1,4 @@
-# Images to ASCII ART
+# A New art peice
 
 Simple Python script to convert images to ASCII
 
